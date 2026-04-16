@@ -457,38 +457,205 @@ const MUSCLES=[
   {key:"core",name:"Core",icon:"&#9889;"},
 ];
 const EXERCISES=[
-  {name:"Bench Press",category:"Chest",muscles:["chest","arms"]},
-  {name:"Push-up",category:"Chest",muscles:["chest","arms"]},
-  {name:"Incline Dumbbell Press",category:"Chest",muscles:["chest","shoulders"]},
-  {name:"Cable Fly",category:"Chest",muscles:["chest"]},
-  {name:"Dips",category:"Chest",muscles:["chest","arms"]},
-  {name:"Pull-up",category:"Back",muscles:["back","arms"]},
-  {name:"Barbell Row",category:"Back",muscles:["back"]},
-  {name:"Lat Pulldown",category:"Back",muscles:["back","arms"]},
-  {name:"Seated Row",category:"Back",muscles:["back"]},
-  {name:"Deadlift",category:"Back",muscles:["back","legs"]},
-  {name:"Overhead Press",category:"Shoulders",muscles:["shoulders","arms"]},
-  {name:"Lateral Raise",category:"Shoulders",muscles:["shoulders"]},
-  {name:"Front Raise",category:"Shoulders",muscles:["shoulders"]},
-  {name:"Arnold Press",category:"Shoulders",muscles:["shoulders","arms"]},
-  {name:"Barbell Curl",category:"Arms",muscles:["arms"]},
-  {name:"Dumbbell Curl",category:"Arms",muscles:["arms"]},
-  {name:"Tricep Pushdown",category:"Arms",muscles:["arms"]},
-  {name:"Skull Crusher",category:"Arms",muscles:["arms"]},
-  {name:"Hammer Curl",category:"Arms",muscles:["arms"]},
-  {name:"Squat",category:"Legs",muscles:["legs"]},
-  {name:"Romanian Deadlift",category:"Legs",muscles:["legs","back"]},
-  {name:"Leg Press",category:"Legs",muscles:["legs"]},
-  {name:"Lunges",category:"Legs",muscles:["legs"]},
-  {name:"Leg Curl",category:"Legs",muscles:["legs"]},
-  {name:"Leg Extension",category:"Legs",muscles:["legs"]},
-  {name:"Calf Raise",category:"Legs",muscles:["legs"]},
-  {name:"Plank",category:"Core",muscles:["core"]},
-  {name:"Crunch",category:"Core",muscles:["core"]},
-  {name:"Russian Twist",category:"Core",muscles:["core"]},
-  {name:"Hanging Leg Raise",category:"Core",muscles:["core"]},
-  {name:"Ab Wheel",category:"Core",muscles:["core"]},
+  // ─── CHEST ──────────────────────────────────────────────
+  // Push-up family
+  {name:"Push-up (Standard)",category:"Chest",tag:"Bodyweight",primary:["chest"],secondary:["arms","shoulders","core"]},
+  {name:"Push-up Wide Grip",category:"Chest",tag:"Bodyweight",primary:["chest"],secondary:["shoulders","arms"],note:"Lebih fokus outer chest"},
+  {name:"Push-up Diamond",category:"Chest",tag:"Bodyweight",primary:["arms"],secondary:["chest","shoulders"],note:"Fokus triceps & inner chest"},
+  {name:"Push-up Knee",category:"Chest",tag:"Bodyweight",primary:["chest"],secondary:["arms"],note:"Versi mudah untuk pemula"},
+  {name:"Push-up Decline",category:"Chest",tag:"Bodyweight",primary:["chest"],secondary:["shoulders","arms"],note:"Fokus upper chest"},
+  {name:"Push-up Incline",category:"Chest",tag:"Bodyweight",primary:["chest"],secondary:["arms"],note:"Fokus lower chest"},
+  {name:"Push-up Pike",category:"Chest",tag:"Bodyweight",primary:["shoulders"],secondary:["arms","core"],note:"Mirip shoulder press, fokus deltoid"},
+  {name:"Push-up Slow Motion",category:"Chest",tag:"Bodyweight",primary:["chest","arms"],secondary:["core"],note:"4 detik turun, 4 detik naik"},
+  {name:"Push-up One Leg",category:"Chest",tag:"Bodyweight",primary:["chest"],secondary:["arms","core"],note:"Extra core stability"},
+  {name:"Push-up Archer",category:"Chest",tag:"Bodyweight",primary:["chest"],secondary:["arms","shoulders"],note:"Unilateral, satu sisi lebih berat"},
+  {name:"Push-up Clap",category:"Chest",tag:"Bodyweight",primary:["chest"],secondary:["arms","shoulders"],note:"Explosive power"},
+  // Bench Press family
+  {name:"Bench Press Barbell",category:"Chest",tag:"Barbell",primary:["chest"],secondary:["arms","shoulders"]},
+  {name:"Bench Press Dumbbell",category:"Chest",tag:"Dumbbell",primary:["chest"],secondary:["arms","shoulders"]},
+  {name:"Incline Bench Press Barbell",category:"Chest",tag:"Barbell",primary:["chest"],secondary:["shoulders","arms"],note:"Fokus upper chest"},
+  {name:"Incline Bench Press Dumbbell",category:"Chest",tag:"Dumbbell",primary:["chest"],secondary:["shoulders","arms"],note:"Fokus upper chest"},
+  {name:"Decline Bench Press Barbell",category:"Chest",tag:"Barbell",primary:["chest"],secondary:["arms"],note:"Fokus lower chest"},
+  {name:"Decline Bench Press Dumbbell",category:"Chest",tag:"Dumbbell",primary:["chest"],secondary:["arms"],note:"Fokus lower chest"},
+  {name:"Close Grip Bench Press",category:"Chest",tag:"Barbell",primary:["arms"],secondary:["chest"],note:"Fokus triceps"},
+  // Fly family
+  {name:"Dumbbell Chest Fly",category:"Chest",tag:"Dumbbell",primary:["chest"],secondary:["shoulders"]},
+  {name:"Incline Dumbbell Fly",category:"Chest",tag:"Dumbbell",primary:["chest"],secondary:["shoulders"],note:"Upper chest stretch"},
+  {name:"Cable Chest Fly",category:"Chest",tag:"Cable",primary:["chest"],secondary:["shoulders"]},
+  {name:"Cable Crossover",category:"Chest",tag:"Cable",primary:["chest"],secondary:["shoulders","arms"]},
+  {name:"Pec Deck Machine",category:"Chest",tag:"Machine",primary:["chest"],secondary:[]},
+  // Dips
+  {name:"Chest Dips",category:"Chest",tag:"Bodyweight",primary:["chest"],secondary:["arms","shoulders"],note:"Condong ke depan untuk chest"},
+  {name:"Dumbbell Pullover",category:"Chest",tag:"Dumbbell",primary:["chest"],secondary:["back"],note:"Juga melatih lats"},
+
+  // ─── BACK ────────────────────────────────────────────────
+  // Pull-up / Chin-up family
+  {name:"Pull-up",category:"Back",tag:"Bodyweight",primary:["back"],secondary:["arms"]},
+  {name:"Chin-up",category:"Back",tag:"Bodyweight",primary:["back"],secondary:["arms"],note:"Supinated grip, lebih banyak biceps"},
+  {name:"Wide Grip Pull-up",category:"Back",tag:"Bodyweight",primary:["back"],secondary:["arms"],note:"Fokus lats lebar"},
+  {name:"Neutral Grip Pull-up",category:"Back",tag:"Bodyweight",primary:["back"],secondary:["arms"]},
+  {name:"Negative Pull-up",category:"Back",tag:"Bodyweight",primary:["back"],secondary:["arms"],note:"Turun perlahan, bagus untuk pemula"},
+  // Row family
+  {name:"Barbell Bent-Over Row",category:"Back",tag:"Barbell",primary:["back"],secondary:["arms","core"]},
+  {name:"Dumbbell One-Arm Row",category:"Back",tag:"Dumbbell",primary:["back"],secondary:["arms"]},
+  {name:"Dumbbell Both-Arm Row",category:"Back",tag:"Dumbbell",primary:["back"],secondary:["arms"]},
+  {name:"Seated Cable Row",category:"Back",tag:"Cable",primary:["back"],secondary:["arms"]},
+  {name:"T-Bar Row",category:"Back",tag:"Barbell",primary:["back"],secondary:["arms"]},
+  {name:"Inverted Row",category:"Back",tag:"Bodyweight",primary:["back"],secondary:["arms","core"],note:"Bisa pakai meja atau bar rendah"},
+  {name:"Pendlay Row",category:"Back",tag:"Barbell",primary:["back"],secondary:["arms","core"],note:"Dead stop setiap rep"},
+  {name:"Renegade Row",category:"Back",tag:"Dumbbell",primary:["back"],secondary:["arms","core"],note:"Posisi push-up sambil row"},
+  // Deadlift family
+  {name:"Conventional Deadlift",category:"Back",tag:"Barbell",primary:["back","legs"],secondary:["core"]},
+  {name:"Romanian Deadlift Barbell",category:"Back",tag:"Barbell",primary:["legs","back"],secondary:["core"],note:"Fokus hamstring & lower back"},
+  {name:"Romanian Deadlift Dumbbell",category:"Back",tag:"Dumbbell",primary:["legs","back"],secondary:["core"]},
+  {name:"Sumo Deadlift",category:"Back",tag:"Barbell",primary:["back","legs"],secondary:["core"],note:"Stance lebar, lebih banyak legs"},
+  {name:"Single Leg Deadlift",category:"Back",tag:"Dumbbell",primary:["legs","back"],secondary:["core"],note:"Melatih keseimbangan"},
+  // Pulldown
+  {name:"Lat Pulldown Wide Grip",category:"Back",tag:"Cable",primary:["back"],secondary:["arms"]},
+  {name:"Lat Pulldown Close Grip",category:"Back",tag:"Cable",primary:["back"],secondary:["arms"],note:"Fokus lower lats"},
+  {name:"Lat Pulldown Reverse Grip",category:"Back",tag:"Cable",primary:["back"],secondary:["arms"],note:"Lebih banyak biceps"},
+  {name:"Straight-Arm Pulldown",category:"Back",tag:"Cable",primary:["back"],secondary:[],note:"Isolasi lats tanpa biceps"},
+  // Upper back
+  {name:"Face Pull",category:"Back",tag:"Cable",primary:["back","shoulders"],secondary:[],note:"Rear delt & rotator cuff"},
+  {name:"Dumbbell Reverse Fly",category:"Back",tag:"Dumbbell",primary:["back","shoulders"],secondary:[],note:"Rear deltoid isolation"},
+  {name:"Seated Rear Delt Fly",category:"Back",tag:"Dumbbell",primary:["back","shoulders"],secondary:[]},
+  {name:"Good Morning",category:"Back",tag:"Barbell",primary:["back","legs"],secondary:["core"],note:"Lower back & hamstring"},
+  {name:"Back Extension",category:"Back",tag:"Bodyweight",primary:["back"],secondary:["legs"],note:"Hyperextension bench"},
+  {name:"Superman Hold",category:"Back",tag:"Bodyweight",primary:["back"],secondary:["core"],note:"Tahan posisi 2-3 detik"},
+
+  // ─── SHOULDERS ──────────────────────────────────────────
+  // Overhead Press family
+  {name:"Overhead Press Barbell",category:"Shoulders",tag:"Barbell",primary:["shoulders"],secondary:["arms","core"]},
+  {name:"Overhead Press Dumbbell",category:"Shoulders",tag:"Dumbbell",primary:["shoulders"],secondary:["arms","core"]},
+  {name:"Seated Dumbbell Press",category:"Shoulders",tag:"Dumbbell",primary:["shoulders"],secondary:["arms"]},
+  {name:"Arnold Press",category:"Shoulders",tag:"Dumbbell",primary:["shoulders"],secondary:["arms"],note:"Rotasi + semua kepala deltoid"},
+  {name:"Push Press",category:"Shoulders",tag:"Barbell",primary:["shoulders"],secondary:["legs","arms"],note:"Sedikit leg drive untuk berat lebih"},
+  {name:"Handstand Push-up",category:"Shoulders",tag:"Bodyweight",primary:["shoulders"],secondary:["arms","core"],note:"Advanced — full bodyweight OHP"},
+  // Raise family
+  {name:"Lateral Raise Dumbbell",category:"Shoulders",tag:"Dumbbell",primary:["shoulders"],secondary:[],note:"Middle deltoid isolation"},
+  {name:"Lateral Raise Cable",category:"Shoulders",tag:"Cable",primary:["shoulders"],secondary:[],note:"Konstan tension lebih baik"},
+  {name:"Front Raise Dumbbell",category:"Shoulders",tag:"Dumbbell",primary:["shoulders"],secondary:[],note:"Anterior deltoid"},
+  {name:"Front Raise Barbell",category:"Shoulders",tag:"Barbell",primary:["shoulders"],secondary:[]},
+  {name:"Upright Row",category:"Shoulders",tag:"Barbell",primary:["shoulders"],secondary:["arms"],note:"Juga melatih traps & biceps"},
+  {name:"Dumbbell Upright Row",category:"Shoulders",tag:"Dumbbell",primary:["shoulders"],secondary:["arms"]},
+  {name:"Shrug Barbell",category:"Shoulders",tag:"Barbell",primary:["shoulders"],secondary:[],note:"Traps isolation"},
+  {name:"Shrug Dumbbell",category:"Shoulders",tag:"Dumbbell",primary:["shoulders"],secondary:[],note:"Traps isolation"},
+  {name:"Machine Shoulder Press",category:"Shoulders",tag:"Machine",primary:["shoulders"],secondary:["arms"]},
+
+  // ─── ARMS ────────────────────────────────────────────────
+  // Biceps
+  {name:"Barbell Curl",category:"Arms",tag:"Barbell",primary:["arms"],secondary:[],note:"Mass builder untuk biceps"},
+  {name:"Dumbbell Curl",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[]},
+  {name:"Dumbbell Curl Alternating",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[]},
+  {name:"Hammer Curl",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[],note:"Brachialis & forearm"},
+  {name:"Concentration Curl",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[],note:"Peak contraction isolation"},
+  {name:"Preacher Curl",category:"Arms",tag:"Barbell",primary:["arms"],secondary:[],note:"Eliminasi swinging"},
+  {name:"Incline Dumbbell Curl",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[],note:"Stretch position, long head focus"},
+  {name:"Cable Curl",category:"Arms",tag:"Cable",primary:["arms"],secondary:[],note:"Konstan tension"},
+  {name:"Reverse Curl",category:"Arms",tag:"Barbell",primary:["arms"],secondary:[],note:"Brachioradialis & forearms"},
+  {name:"Zottman Curl",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[],note:"Biceps naik, forearm turun"},
+  {name:"Cross-Body Curl",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[]},
+  // Triceps
+  {name:"Tricep Pushdown Cable",category:"Arms",tag:"Cable",primary:["arms"],secondary:[]},
+  {name:"Tricep Pushdown Rope",category:"Arms",tag:"Cable",primary:["arms"],secondary:[],note:"Lebih aktivasi lateral head"},
+  {name:"Skull Crusher Barbell",category:"Arms",tag:"Barbell",primary:["arms"],secondary:[]},
+  {name:"Skull Crusher Dumbbell",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[]},
+  {name:"Overhead Tricep Extension",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[],note:"Long head focus"},
+  {name:"Overhead Tricep Extension Cable",category:"Arms",tag:"Cable",primary:["arms"],secondary:[]},
+  {name:"Tricep Dips",category:"Arms",tag:"Bodyweight",primary:["arms"],secondary:["chest","shoulders"],note:"Tegak lurus untuk triceps"},
+  {name:"Close Grip Bench Press",category:"Arms",tag:"Barbell",primary:["arms"],secondary:["chest"],note:"Compound triceps builder"},
+  {name:"Tricep Kickback",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[]},
+  // Forearms
+  {name:"Wrist Curl",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[],note:"Forearm flexors"},
+  {name:"Reverse Wrist Curl",category:"Arms",tag:"Dumbbell",primary:["arms"],secondary:[],note:"Forearm extensors"},
+  {name:"Farmer's Walk",category:"Arms",tag:"Dumbbell",primary:["arms","back"],secondary:["core","legs"],note:"Grip strength & full body"},
+
+  // ─── LEGS ────────────────────────────────────────────────
+  // Squat family
+  {name:"Squat Barbell",category:"Legs",tag:"Barbell",primary:["legs"],secondary:["back","core"]},
+  {name:"Squat Dumbbell",category:"Legs",tag:"Dumbbell",primary:["legs"],secondary:["core"]},
+  {name:"Goblet Squat",category:"Legs",tag:"Dumbbell",primary:["legs"],secondary:["core"],note:"Dumbbell di depan dada"},
+  {name:"Front Squat",category:"Legs",tag:"Barbell",primary:["legs"],secondary:["core"],note:"Lebih banyak quads & core"},
+  {name:"Sumo Squat",category:"Legs",tag:"Dumbbell",primary:["legs"],secondary:[],note:"Stance lebar, fokus inner thigh"},
+  {name:"Bulgarian Split Squat",category:"Legs",tag:"Dumbbell",primary:["legs"],secondary:["core"],note:"Unilateral, keseimbangan"},
+  {name:"Box Squat",category:"Legs",tag:"Barbell",primary:["legs"],secondary:["back"],note:"Kontrol & power dari bawah"},
+  {name:"Hack Squat Machine",category:"Legs",tag:"Machine",primary:["legs"],secondary:[]},
+  {name:"Pistol Squat",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:["core"],note:"Single leg, very advanced"},
+  {name:"Wall Sit",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:[],note:"Isometric endurance"},
+  // Lunge family
+  {name:"Lunge Forward",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:["core"]},
+  {name:"Lunge Dumbbell",category:"Legs",tag:"Dumbbell",primary:["legs"],secondary:["core"]},
+  {name:"Reverse Lunge",category:"Legs",tag:"Dumbbell",primary:["legs"],secondary:["core"],note:"Lebih mudah dari forward lunge"},
+  {name:"Walking Lunge",category:"Legs",tag:"Dumbbell",primary:["legs"],secondary:["core"]},
+  {name:"Side Lunge",category:"Legs",tag:"Dumbbell",primary:["legs"],secondary:[],note:"Adductor & inner thigh"},
+  // Hamstring
+  {name:"Leg Curl Machine",category:"Legs",tag:"Machine",primary:["legs"],secondary:[]},
+  {name:"Nordic Curl",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:["core"],note:"Sangat berat, hamstring killer"},
+  {name:"Good Morning",category:"Legs",tag:"Barbell",primary:["legs","back"],secondary:["core"]},
+  {name:"Glute Ham Raise",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:["core"]},
+  // Glutes
+  {name:"Hip Thrust Barbell",category:"Legs",tag:"Barbell",primary:["legs"],secondary:["core"],note:"Glute builder terbaik"},
+  {name:"Hip Thrust Dumbbell",category:"Legs",tag:"Dumbbell",primary:["legs"],secondary:["core"]},
+  {name:"Glute Bridge",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:["core"]},
+  {name:"Donkey Kick",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:["core"]},
+  {name:"Cable Kickback",category:"Legs",tag:"Cable",primary:["legs"],secondary:[]},
+  // Quads
+  {name:"Leg Press Machine",category:"Legs",tag:"Machine",primary:["legs"],secondary:[]},
+  {name:"Leg Extension Machine",category:"Legs",tag:"Machine",primary:["legs"],secondary:[],note:"Quad isolation"},
+  {name:"Step-Up Dumbbell",category:"Legs",tag:"Dumbbell",primary:["legs"],secondary:["core"]},
+  // Calves
+  {name:"Standing Calf Raise",category:"Legs",tag:"Machine",primary:["legs"],secondary:[]},
+  {name:"Seated Calf Raise",category:"Legs",tag:"Machine",primary:["legs"],secondary:[]},
+  {name:"Single Leg Calf Raise",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:[],note:"Lebih intens dari bilateral"},
+  {name:"Donkey Calf Raise",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:[],note:"Stretch lebih dalam"},
+  // Plyometrics
+  {name:"Jump Squat",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:["core"],note:"Explosive power"},
+  {name:"Box Jump",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:["core"]},
+  {name:"Broad Jump",category:"Legs",tag:"Bodyweight",primary:["legs"],secondary:["core"]},
+
+  // ─── CORE ────────────────────────────────────────────────
+  // Plank family
+  {name:"Plank",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[]},
+  {name:"Plank Side",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[],note:"Oblique focus"},
+  {name:"Plank Reverse",category:"Core",tag:"Bodyweight",primary:["core"],secondary:["back"]},
+  {name:"Plank with Shoulder Tap",category:"Core",tag:"Bodyweight",primary:["core"],secondary:["shoulders"],note:"Anti-rotation stability"},
+  {name:"Plank to Push-up",category:"Core",tag:"Bodyweight",primary:["core"],secondary:["arms","chest"]},
+  // Crunch family
+  {name:"Crunch",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[]},
+  {name:"Crunch Reverse",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[]},
+  {name:"Bicycle Crunch",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[],note:"Oblique aktivasi tinggi"},
+  {name:"Cable Crunch",category:"Core",tag:"Cable",primary:["core"],secondary:[]},
+  {name:"Dumbbell Crunch",category:"Core",tag:"Dumbbell",primary:["core"],secondary:[]},
+  // Leg raise family
+  {name:"Hanging Leg Raise",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[],note:"Hip flexor & lower abs"},
+  {name:"Hanging Knee Raise",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[],note:"Versi mudah leg raise"},
+  {name:"Lying Leg Raise",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[]},
+  {name:"Flutter Kick",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[],note:"Endurance lower abs"},
+  // Rotation
+  {name:"Russian Twist",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[]},
+  {name:"Russian Twist Dumbbell",category:"Core",tag:"Dumbbell",primary:["core"],secondary:[],note:"Lebih berat = lebih intense"},
+  {name:"Wood Chop Cable",category:"Core",tag:"Cable",primary:["core"],secondary:["shoulders"],note:"Rotational power"},
+  {name:"Pallof Press",category:"Core",tag:"Cable",primary:["core"],secondary:["shoulders"],note:"Anti-rotation, sangat efektif"},
+  // Other core
+  {name:"Ab Wheel Rollout",category:"Core",tag:"Equipment",primary:["core"],secondary:["arms","back"]},
+  {name:"Dragon Flag",category:"Core",tag:"Bodyweight",primary:["core"],secondary:["back"],note:"Advanced, dari Bruce Lee"},
+  {name:"L-Sit",category:"Core",tag:"Bodyweight",primary:["core"],secondary:["arms"],note:"Isometric hold"},
+  {name:"Mountain Climber",category:"Core",tag:"Bodyweight",primary:["core"],secondary:["legs","chest"]},
+  {name:"Sit-up",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[]},
+  {name:"Dead Bug",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[],note:"Spinal stability, beginner-friendly"},
+  {name:"Hollow Body Hold",category:"Core",tag:"Bodyweight",primary:["core"],secondary:[],note:"Foundation calisthenics"},
+
+  // ─── CARDIO ──────────────────────────────────────────────
+  {name:"Jumping Jacks",category:"Cardio",tag:"Bodyweight",primary:["core"],secondary:["legs","shoulders"],note:"Warmup atau cardio"},
+  {name:"Burpee",category:"Cardio",tag:"Bodyweight",primary:["core","legs","chest"],secondary:["arms","shoulders"],note:"Full body kondisioner"},
+  {name:"High Knees",category:"Cardio",tag:"Bodyweight",primary:["legs","core"],secondary:[]},
+  {name:"Jump Rope",category:"Cardio",tag:"Equipment",primary:["legs"],secondary:["arms","core"]},
+  {name:"Sprint",category:"Cardio",tag:"Bodyweight",primary:["legs"],secondary:["core"]},
+  {name:"Bear Crawl",category:"Cardio",tag:"Bodyweight",primary:["core","shoulders"],secondary:["legs","arms"],note:"Full body conditioning"},
+  {name:"Dumbbell Thruster",category:"Cardio",tag:"Dumbbell",primary:["legs","shoulders"],secondary:["core","arms"],note:"Squat + Press combo"},
+  {name:"Kettlebell Swing",category:"Cardio",tag:"Equipment",primary:["legs","back"],secondary:["core","shoulders"],note:"Explosive hinge movement"},
 ];
+
 const ACHIEVEMENTS=[
   {id:"w1",icon:"&#127947;",name:"First Blood",desc:"Complete your first workout",xp:100,cond:s=>s.totalWorkouts>=1},
   {id:"w5",icon:"&#128293;",name:"Getting Warm",desc:"Complete 5 workouts",xp:150,cond:s=>s.totalWorkouts>=5},
@@ -598,23 +765,73 @@ function renderAch(){
 
 function buildCats(){
   const cats=["All",...new Set(EXERCISES.map(e=>e.category))];
-  document.getElementById("cat-chips").innerHTML=cats.map(c=>'<div class="cat-chip '+( c==="All"?"active":"")+'" onclick="setCat('+"'"+c+"'"+',this)">'+c+'</div>').join("");
+  const tags=["All Equip","Bodyweight","Dumbbell","Barbell","Cable","Machine","Equipment"];
+  
+  // Gunakan data-cat dan data-type, tanpa onclick inline
+  const catHtml = cats.map(c => 
+    `<div class="cat-chip ${c==="All"?"active":""}" data-type="cat" data-value="${escapeHtml(c)}">${escapeHtml(c)}</div>`
+  ).join("");
+  
+  const divider = `<div style="width:100%;height:1px;background:var(--bd);margin:6px 0"></div>`;
+  
+  const tagHtml = tags.map(t => 
+    `<div class="cat-chip tag-chip ${t==="All Equip"?"active-tag":""}" data-type="tag" data-value="${escapeHtml(t)}">${escapeHtml(t)}</div>`
+  ).join("");
+  
+  document.getElementById("cat-chips").innerHTML = catHtml + divider + tagHtml;
+  
+  // Pasang event listener sekali saja (Delegation)
+  document.getElementById("cat-chips").onclick = function(e) {
+    const chip = e.target.closest(".cat-chip");
+    if(!chip) return;
+    
+    const type = chip.dataset.type;
+    const value = chip.dataset.value;
+    
+    if(type === "cat") setCat(value, chip);
+    else if(type === "tag") setTag(value, chip);
+  };
 }
-function setCat(cat,el){activeCategory=cat;document.querySelectorAll(".cat-chip").forEach(c=>c.classList.remove("active"));el.classList.add("active");filterExercises();}
+
+// Helper sederhana untuk mencegah XSS pada atribut HTML
+function escapeHtml(text) {
+  if(!text) return text;
+  return text.toString().replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+}
+let activeTag="All Equip";
+function setTag(tag,el){
+  activeTag=tag;
+  document.querySelectorAll(".tag-chip").forEach(c=>c.classList.remove("active-tag","active"));
+  el.classList.add("active");
+  filterExercises();
+}
+function setCat(cat,el){activeCategory=cat;document.querySelectorAll(".cat-chip:not(.tag-chip)").forEach(c=>c.classList.remove("active"));el.classList.add("active");filterExercises();}
 function filterExercises(){
   const q=document.getElementById("ex-search").value.toLowerCase();
   let list=EXERCISES;
   if(activeCategory!=="All")list=list.filter(e=>e.category===activeCategory);
+  if(activeTag!=="All Equip")list=list.filter(e=>e.tag===activeTag);
   if(q)list=list.filter(e=>e.name.toLowerCase().includes(q));
-  document.getElementById("ex-list").innerHTML=list.length?list.map(e=>
-    '<div class="ex-item" onclick="addExercise('+"'"+e.name+"'"+')"><div><div class="ex-item-name">'+e.name+'</div><div class="ex-item-tag">'+e.muscles.join(" &middot; ")+'</div></div><div class="ex-item-add">+</div></div>'
-  ).join(""):'<div class="empty-state">No exercises found</div>';
+  document.getElementById("ex-list").innerHTML=list.length?list.map(e=>{
+    const allMuscles=[...(e.primary||[]),...(e.secondary||[])];
+    const tagBadge='<span style="font-size:9px;padding:1px 6px;border-radius:8px;background:var(--s3);color:var(--txt3);margin-left:4px">'+e.tag+'</span>';
+    const secLabel=e.secondary&&e.secondary.length?'<span style="color:var(--txt3)"> +'+e.secondary.join(",")+'</span>':""
+    const noteLabel=e.note?'<span style="color:var(--txt3);font-style:italic"> · '+e.note+'</span>':"";
+    return '<div class="ex-item" onclick="addExercise('+"'"+e.name.replace(/'/g,"\\'")+"'"+')"><div style="flex:1;min-width:0"><div class="ex-item-name" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px">'+e.name+tagBadge+'</div><div class="ex-item-tag">'+( e.primary||[]).join("·")+secLabel+noteLabel+'</div></div><div class="ex-item-add">+</div></div>';
+  }).join(""):'<div class="empty-state">No exercises found</div>';
 }
 
 function addExercise(name){
   if(currentExercises.find(e=>e.name===name)){showToast("&#8505;&#65039;","Already added",name+" is in your workout");return;}
   const ex=EXERCISES.find(e=>e.name===name);
-  currentExercises.push({name:ex.name,muscles:ex.muscles,sets:[{reps:"",weight:""}]});
+  currentExercises.push({
+    name:ex.name,
+    primary:ex.primary||[],
+    secondary:ex.secondary||[],
+    muscles:[...(ex.primary||[]),...(ex.secondary||[])],
+    isBodyweight:ex.tag==="Bodyweight",
+    sets:[{reps:"",weight:""}]
+  });
   renderWorkout();
   if(window.innerWidth<768)document.getElementById("sel-ex").scrollIntoView({behavior:"smooth",block:"center"});
 }
@@ -640,7 +857,10 @@ function saveWorkout(){
   const exercisesData=currentExercises.map(ex=>{
     let exVol=0;
     ex.sets.forEach(s=>{const v=(parseInt(s.reps)||0)*(parseFloat(s.weight)||0);exVol+=v;totalVol+=v;if(parseInt(s.reps)>0||parseFloat(s.weight)>0)totalSets++;});
-    ex.muscles.forEach(m=>{if(state.muscleVolumes[m]!==undefined){const est=exVol>0?exVol:ex.sets.reduce((a,s)=>a+(parseInt(s.reps)||0)*30,0);state.muscleVolumes[m]+=est;}});
+    // Primary muscles: 100% volume; secondary: 30% bonus XP
+    const bwEst=exVol>0?exVol:ex.sets.reduce((a,s)=>a+(parseInt(s.reps)||0)*30,0);
+    (ex.primary||ex.muscles||[]).forEach(m=>{if(state.muscleVolumes[m]!==undefined)state.muscleVolumes[m]+=bwEst;});
+    (ex.secondary||[]).forEach(m=>{if(state.muscleVolumes[m]!==undefined)state.muscleVolumes[m]+=Math.floor(bwEst*0.3);});
     return{name:ex.name,muscles:ex.muscles,sets:ex.sets.length,volume:exVol};
   });
   const xpGained=Math.max(50,Math.floor(totalVol/8)+currentExercises.length*20);
